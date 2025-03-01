@@ -16,7 +16,7 @@ client.on("message", (channel, tags, message, self) => {
 
     if (message.toLowerCase() === "!quote") {
         console.log("Fetching quote...");
-        fetch("https://api.quotable.io/random")
+        fetch("https://zenquotes.io/api/random")
             .then(response => response.json())
             .then(data => {
                 console.log("Fetched quote:", data.content);
