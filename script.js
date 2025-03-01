@@ -19,11 +19,13 @@ client.on("message", (channel, tags, message, self) => {
         fetch("https://api.adviceslip.com/advice")
             .then(response => response.json())
             .then(data => {
-                console.log("Fetched quote:", data.content);
-                showQuote(data.content);
+                const quote = data.slip.advice;
+                console.log("Fetched quote:", quote);
+                showQuote(quote);
             })
             .catch(error => console.error("Error fetching quote:", error));
     }
+    
 });
 
 // Function to Show the Quote Popup
