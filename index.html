@@ -6,9 +6,24 @@
     <title>Twitch Quotes</title>
     <link rel="stylesheet" href="style.css">
     <script src="script.js" defer></script>
+    <style>
+        #quote-popup {
+            display: none;
+            position: fixed;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: rgba(0, 0, 0, 0.8);
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+            font-size: 1.5em;
+        }
+    </style>
 </head>
 <body>
     <h1>quote</h1>
     <p>author<p>
+    <div id="quote-popup"></div>
 </body>
 </html>
