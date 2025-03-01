@@ -1,34 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Twitch Quote Popup</title>
-    <script type="module" src="script.js"></script>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            background-color: black;
-            color: white;
-        }
-        #quote-popup {
-            display: none;
-            position: fixed;
-            bottom: 10px;
-            left: 50%;
-            transform: translateX(-50%);
-            background-color: rgba(0, 0, 0, 0.8);
-            color: white;
-            padding: 15px;
-            border-radius: 5px;
-            font-size: 1.5em;
-            text-align: center;
-            border: 2px solid white;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <title>Quote Overlay</title>
+  <style>
+    #quote-popup {
+      display: none;
+      position: fixed;
+      bottom: 10%;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: rgba(0, 0, 0, 0.8);
+      color: white;
+      padding: 15px;
+      border-radius: 5px;
+      font-size: 1.5em;
+      text-align: center;
+      border: 2px solid white;
+    }
+  </style>
 </head>
 <body>
-    <div id="quote-popup"></div>
+  <div id="quote-popup"></div>
+  <script type="module" src="script.js"></script>
 </body>
 </html>
