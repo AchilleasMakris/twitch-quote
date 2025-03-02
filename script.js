@@ -1,19 +1,15 @@
 import tmi from "https://esm.sh/tmi.js";
 
-// Twitch Client Setup
 const client = new tmi.Client({
     options: { debug: true },
     connection: { reconnect: true },
     channels: ["lexmindset"] // Replace with your Twitch username
 });
 
-// Connect to Twitch Chat
 client.connect().catch(console.error);
 
-// Listen for Messages
 client.on("message", (channel, tags, message, self) => {
-    if (self) return; // Ignore bot's own messages
-
+    if (self) return;
     if (message.toLowerCase() === "!quote") {
         console.log("Fetching quote...");
         fetch("https://api.adviceslip.com/advice")
@@ -25,18 +21,22 @@ client.on("message", (channel, tags, message, self) => {
             })
             .catch(error => console.error("Error fetching quote:", error));
     }
-    
 });
 
-// Function to Show the Quote Popup
 function showQuote(quote) {
     const quotePopup = document.getElementById("quote-popup");
     if (quotePopup) {
         quotePopup.innerText = quote;
         quotePopup.style.display = "block";
-
+        quotePopup.style.opacity = "0";
+        quotePopup.style.animation = "none";
+        void quotePopup.offsetWidth;
+        quotePopup.style.animation = "slideUp 0.3s ease-out forwards";
         setTimeout(() => {
-            quotePopup.style.display = "none";
+            quotePopup.style.animation = "slideDown 0.3s ease-out forwards";
+            setTimeout(() => {
+                quotePopup.style.display = "none";
+            }, 300);
         }, 5000);
     }
 }
